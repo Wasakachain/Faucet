@@ -1,0 +1,23 @@
+{
+  "name": "Faucet",
+  "version": "1.0.0",
+  "description": "Blockchain Faucet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wasakachain/Faucet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wasakachain/Faucet/issues"
+  },
+  "homepage": "https://github.com/Wasakachain/Faucet#readme",
+  "dependencies": {
+    "wallet": "git://github.com/Wasakachain/Wallet.git#franks-backend"
+  }
+}
