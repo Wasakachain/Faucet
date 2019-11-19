@@ -251,7 +251,7 @@ h1 {
     flex-direction: column;
     background: white;
     width: 100%;
-    max-width: 550px;
+    max-width: 560px;
     border-radius: 1em;
     box-shadow: 0 0 15px -7px rgba(0, 0, 0, 0.8);
     padding: 12px 20px;
@@ -279,6 +279,7 @@ h1 {
 
 .address-fieldset {
     display: flex;
+    flex-direction: column;
 }
 
 .address-label {
@@ -351,7 +352,7 @@ h1 {
     font-size: 0.95em;
 }
 
-.tx-wrapper > a,
+.tx-wrapper > a:hover,
 .address-link:hover {
     text-decoration: underline;
 }
