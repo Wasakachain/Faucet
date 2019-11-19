@@ -1,3 +1,4 @@
 node_modules
-mnemonic.js
+faucetMnemonic.js
 *lock.json
+faucet-cache.json

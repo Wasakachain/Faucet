@@ -4,7 +4,8 @@
   "description": "Blockchain Faucet",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,16 @@
   },
   "homepage": "https://github.com/Wasakachain/Faucet#readme",
   "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.24.0",
     "wallet": "git://github.com/Wasakachain/Wallet.git#franks-backend"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "faucet-cache.json"
+    ]
   }
 }
