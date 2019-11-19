@@ -2,6 +2,7 @@ const http = require('http');
 const https = require('https');
 const Url = require('url');
 const querystring = require('querystring');
+const crypto = require('crypto');
 const elliptic = require('elliptic');
 const secp256k1 = new elliptic.ec('secp256k1');
 const ethers = require('ethers');
@@ -87,12 +88,6 @@ exports.passCacheToRoutes = (request, response, next) => {
     response.locals.cache = cache;
     next();
 }
-
-const http = require('http');
-const https = require('https');
-const Url = require('url');
-const querystring = require('querystring');
-const crypto = require('crypto');
 
 function setHeaders(data) {
     let header = {

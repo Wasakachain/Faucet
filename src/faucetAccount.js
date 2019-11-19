@@ -1,4 +1,4 @@
-const Wallet = require('wallet/src/models/wallet');
+const Wallet = require('./models/wallet');
 const mnemonic = require('../faucetMnemonic');
 
 let _faucet;
