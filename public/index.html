@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WasakaFaucet</title>
+    <link href="index.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <header class="header-container">
+        <a href="/">
+            <h1>
+                <div class="icon-container">
+                    <img src="../assets/imgs/Enmascarar_grupo_1.png"/>
+                </div>
+                <span class="flex">
+                    <span class="title-wasaka">Wasaka</span>
+                    <span class="title-faucet">Faucet</span>
+                </span>
+            </h1>
+        </a>
+    </header>
+    <main class="main-container four-background">
+        <div class="faucet-content">
+            <div class="content-title">
+                Want some WASA?
+            </div>
+            <div class="faucet-form-wrapper">
+                <form id="faucet-form" class="address-form">
+                    <fieldset class="address-fieldset">
+                        <label for="address-input" class="address-label">Address</label>
+                        <input maxlength="42" id="address-input" class="address-input" required/>
+                    </fieldset>
+                    <div class="faucet-submit-wrapper">
+                        <button id="form-submit" class="faucet-submit" type="submit">Get Wasa!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="assets/faucet.js"></script>
+</body>
+</html>
