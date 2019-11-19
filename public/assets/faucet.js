@@ -81,11 +81,12 @@
         successMessage.innerHTML = `We sent <span>1 WASA</span> to the address:`;
         successMessage.classList.add('success-message')
         const addressLink = d.createElement('a');
-        addressLink.innerHTML = address;
-        addressLink.href = '#';
+        addressLink.innerHTML = '0x' + address;
+        addressLink.href = 'http://localhost:9999/address/' + '0x' + address;
+        addressLink.target = "_blank";
         addressLink.classList.add('address-link')
         const txWrapper = d.createElement('div');
-        txWrapper.innerHTML=`<p>tx:</p><a href="#" title="${tx.transactionDataHash}">${tx.transactionDataHash}</a>`
+        txWrapper.innerHTML=`<p>tx:</p><a target="_blank" href="http://localhost:9999/transaction/${tx.transactionDataHash}" title="0x${tx.transactionDataHash}">0x${tx.transactionDataHash}</a>`
         txWrapper.classList.add('tx-wrapper', 'flex');
         const goBackButtonWrapper = d.createElement('div');
         goBackButtonWrapper.classList.add('faucet-submit-wrapper');
