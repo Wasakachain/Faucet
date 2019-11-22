@@ -5,7 +5,7 @@ class Transaction {
         this.from = sender;
         this.to = to;
         this.value = value ? value.toString() : value;
-        this.fee = fee ? value.toString() : fee;
+        this.fee = fee ? fee.toString() : fee;
         this.dateCreated = new Date().toISOString();
         this.data = data;
         this.senderPubKey = senderPubKey;
