@@ -5,7 +5,8 @@ const App = Express();
 const { handleNotFound, setCorsHeadersMiddleware, passCacheToRoutes } = require('./src/utils/functions');
 const PORT = process.env.port || 5855;
 
-const _provider = process.env.provider || 'http://localhost:5555';
+// const _provider = process.env.provider || 'http://localhost:5555';
+const _provider = process.env.provider || 'http://192.168.1.175:5555';
 
 
 exports.provider = _provider;
