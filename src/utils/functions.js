@@ -115,7 +115,13 @@ exports.request = (url, method, data) => {
             });
 
             res.on('end', () => {
-                let response = JSON.parse(output);
+                let response;
+                try {
+                    response = JSON.parse(output);
+                } catch(e) {
+                    console.log(output);
+                    reject({ status: 500, data:{ message: 'Unexpected node response.' }});
+                }
                 if (res.statusCode >= 300) {
                     reject({ status: res.statusCode, data: response });
                     return;

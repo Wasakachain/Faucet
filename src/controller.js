@@ -20,7 +20,9 @@ function getErrorMessage(error) {
                 return error.data.message;
             }
         }
-        return JSON.stringify(error);
+        let json = JSON.stringify(error);
+
+        return /errno/.test(json) ? 'Couldn\'t connect with the node.' : JSON.stringify(error);
     }
     return 'Unexpected error.'
 }
@@ -54,18 +56,23 @@ exports.sendCoins = (request, response) => {
         }
     }
     response.locals.cache[validatedAddress.toLowerCase()] = Date.now();
-    saveCache(response.locals.cache).then(()=> {
-        faucet.signTransaction(address, WASA, 100 * GAR, data).send(provider).then(tx => {
-            response.send({
-                message: 'coins sent. tx hash: 0x' + tx.transactionDataHash,
-                tx
-            });
+    try {
+        saveCache(response.locals.cache).then(()=> {
+            faucet.signTransaction(address, WASA, 100 * GAR, data).send(provider).then(tx => {
+                response.send({
+                    message: 'coins sent. tx hash: 0x' + tx.transactionDataHash,
+                    tx
+                });
+            }).catch(err => {
+                delete response.locals.cache[validatedAddress.toLowerCase()];
+                handleRevertCache(response.locals.cache, response, 'Failed to send transaction. Error: ' + getErrorMessage(err));
+            })
         }).catch(err => {
             delete response.locals.cache[validatedAddress.toLowerCase()];
-            handleRevertCache(response.locals.cache, response, 'Failed to send transaction. Error: ' + getErrorMessage(err));
-        })
-    }).catch(err => {
+            handleRevertCache(response.locals.cache, response, 'error processing request.');
+        });
+    } catch(e) {
         delete response.locals.cache[validatedAddress.toLowerCase()];
         handleRevertCache(response.locals.cache, response, 'error processing request.');
-    });
+    }
 } 
